@@ -2,6 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { decrypt } from '@/app/auth/02-stateless-session';
 import { cookies } from 'next/headers';
 
+export const config = {
+  // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
+  matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
+};
+
 // Runs on every request including the prefetched routes, so its important to 
 // keep the computation and the data fetching to a minimum
 
